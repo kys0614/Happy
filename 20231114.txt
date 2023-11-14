@@ -1,0 +1,130 @@
+4. 아래 코드에서 Buyer 클래스의 buy 메서드의 매개변수 타입은? (30점)
+변수타입 : 자료형 : 다형성 -> 조상님을 따른다! 상속을 받으면.
+
+public class Test {
+	public static void main(String[] args) {
+		Buyer buyer = new Buyer();
+		buyer.buy(new Video());
+		buyer.buy(new Audio());
+	}
+}
+class Buyer {
+	void buy(Product(매개변수의 타입) p) {
+		System.out.println(p);
+	}
+}
+class Product {}
+class Video extends Product {} //5. 아래와 같이 출력하기 위해 오버라이딩하세요(15점)
+class Audio extends Product {} //6. 아래와 같이 출력하기 위해 오버라이딩하세요(15점)
+ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+출력
+Video
+Audio
+
+연습문제 : 301쪽
+class Speaker{
+	String getName() {
+		return "스피커";
+	}
+}
+
+class RedSpeaker extends Speaker{
+	String getName() {
+		return "빨간";
+	}
+}
+class BlueSpeaker extends Speaker{
+	String getName() {
+		return "파란";
+	}
+}
+
+class Person{ //사람 클래스
+	//객체변수
+	Speaker speaker;
+	//기본생성자
+	Person(Speaker speaker){
+	   this.speaker = speaker;
+	}
+	//메서드 : 색깔(클래스:매개변수다형성)스피커가 켜졌습니다.
+	void turnOn(){
+	      System.out.println(speaker.getName()+"이 커졌습니다.");
+	}
+}
+
+public class PRAcTICE_11_03{
+
+   public static void main(String[] args){
+	Speaker s1 = new RedSpeaker();
+	Person p1 = new Person(s1);
+	p1.turnOn(); //빨간 스피커가 켜졌습니다.
+
+	Speaker s2 = new BlueSpeaker();
+	Person p2 = new Person(s2);
+	p2.turnOn(); //파란 스피커가 켜졌습니다.
+   }
+}
+ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+실행결과:
+빨간 스피커가 켜졌습니다.
+파란 스피커가 켜졌습니다.
+
+객체지향 : 다형성 -> 진짜 중요하다
+@추상클래스 : 
+일반클래스와 동일하다 -> 추상메서드를 정의해서 사용한다.
+추상메서드를 추상클래스에서 선언하면 무조건 자식 메서드에서 오버라이딩 해야한다.
+추상클래스 : 추상메서드가 항상 존재한다(X)
+abstract	    멤버변수와 생성자를 사용할 수 있다.(O)
+	    추상메서드선언부에 선언했다.
+	    추상클래스를 상속받는 클래스는 무조건 오버라이딩 한다(O)
+@인터페이스 : 추상 메서드랑 상수만 선언할 수 있다.
+인터페이스는 클래스가 아니고 스스로 객체를 생성할 수 없다.
+어떤 형태로도 객체를 만들 수 없기 때문에 클래스라고 부를 수 없다.
+인터페이스는 필드와 생성자를 가질 수 없고 오직 추상메서드와 상수만 포함
+interface 인터페이스 이름 {
+	public static final 타입 상수이름 = 값;
+	public abstract 메서드이름(매개변수목록);
+}
+1) 추상 메서드 집합이라서 추상 클래스보다 추상화가 높다.
+2) 인터페이스 모든 멤버는 public이다. (접근제어자 낮은 단계)
+    public static final -> 명시안해도 자동 인식한다.(자동적컴파일)
+
+@인터페이스 구현/다형성 사용방법
+1) 인터페이스 정의된 추상메서드를 완성하며 인터페이스 자체의 추상메서드를 구현해 줄 클래스를 작성해한다.
+부모 인터페이스 : 메서드를 모두 사용하지 않을 경우
+자식 클래스 : abstract 꼭 정의한다.
+
+2) 인터페이스 : 다중 상속이 가능하다.(선언부만 존재하기 때문)
+* 클래스는 단일 상속 : 부모의 메서드를 상속받는데 메서드는 구현부가 존재한다.
+메서드가 동일할 경우는 구현부가 다르기 때문에 자식이 어떤걸 선택할지 모른다.
+
+3) 인터페이스 다형성 가능하다.
+* 자식 클래스 메서드를 만들고 리턴타입으로 부모형(인터페이스) 반환가능하다.
+main static : Fightable f = new Fighter(); //자식객체
+Fighter 클래스 메서드를 이용해서 반환가능(Fightable method(){ return f; })
+인터페이스 다형성 가능하다.
+
+Q. 추상 클래스 인터페이스 공통점?
+- 미완성 성계도이고 추상메서드를 가지고 있다.
+(모듈화 : 독립적으로 구현 사용가능 / 객체변경이 필요할 때 수정이 최소화
+정보은닉 : 실제 구현클래스 내용 보지 않아도 개발코드 객체 사용
+추상화: 더 생각해서 만들어야 하는 부분)
+Q. 추상 클래스 인터페이스 차이점?
+- 인터페이스 IV(인스턴스멤버:변수/메서드) 가질 수 없다.
+(인터페이스는 추상화가 심화된 상황이며 구현될 수 없고 추상메서드로 캡슐화 사용한다.)
+
+@다중 인터페이스 구현
+[접근제한자] class 자식클래스 implements 인터페이스1, 인터페이스2 {
+	//필드변수
+	//생성자
+	//인터페이스1 구현 메서드 (추상 오버라이딩=구현한다.)
+	//인터페이스2 구현 메서드 (추상 오버라이딩=구현한다.)
+}
+1) 인터페이스 각 기능들 따로 선언하고 자식들에게 다중상속한다.
+
+@인터페이스 상속
+[접근제한자] interface 인터페이스 이름 extends 인터페이스1, 인터페이스2{
+	//추상메서드
+}
+
+@인터페이스 장점
