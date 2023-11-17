@@ -1,24 +1,23 @@
-package Day13;
+package Day14;
 
-public class Button { //외부 클래스
+public class Button {
 	
-	//내부적으로 인터페이스를 만든다.
-	public static interface ClickListener{
-		//추상메서드
-		void onClick();
+	public static interface ClickListener{ //중첩 인터페이스
+		void onclick();
+		
 	}
 	
-	//다형성 객체를 주입 받을 수 있는 변수를 만든다.
-	private ClickListener clickListener;
+	//객체 변수를 만들어보자.
+	ClickListener clickListener;
 	
-	//객체를 주입하는 Setter 메서드
+	//객체 주입 : 등록(OK) / 취소(cancle)
 	public void setClickListener(ClickListener clickListener) {
-		//나의 객체를 갖고온다.
 		this.clickListener = clickListener;
 	}
 	
+	//버튼 클릭하는 메서드
 	public void click() {
-		this.clickListener.onClick();
+		this.clickListener.onclick();
 	}
 
 }
