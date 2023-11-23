@@ -17,10 +17,15 @@ public class multicatch {
 			
 			int CardIndex = scan.nextInt();
 			System.out.println("뽑은 카드 번호는:"+cards[CardIndex]);
+			
 		}catch(InputMismatchException e) {
 			//InputMismatchException : 입력이 잘못된 경우(scanner에러)에 에러가 나는 예외처리
 			System.out.println("잘못 입력하셨습니다. 스캐너를 입력할 때는 숫자만 가능합니다.");
-		}catch(ArrayIndexout Exception)
+			
+		}catch(ArrayIndexOutOfBoundsException e) {
+			//배열의 공간이 없는데 있다고 합니다.
+			System.out.println("해당 번호의 카드는 없습니다.");
+		}
 		
 		System.out.println("프로그램 종료");
 		scan.close();
