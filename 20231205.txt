@@ -1,0 +1,14 @@
+maria DB - Server
+mysql - workbench - 계정연결
+eclipse - jdbc.jar 압축해제 - db페이지 연결
+DB conn -> 워크벤치(DB/Table) -> select 정보 View
+
+SWing : 데이터를 입력받고 출력하는 사용자가 볼 수 있는 화면을 구성하는 것이다.
+GUI(Graphic User Interface) - JFrame (MVC)
+
+숫자 야구 게임 만들기
+1. 숫자를 랜덤으로 1부터 9까지 정한다.
+2. 입력칸을 3개 만들고 랜덤과 같은지를 비교한다.
+3. 숫자와 위치가 모두 맞으면 1strike
+   숫자는 맞으나 위치가 틀리면 1ball
+   숫자가 없으면 1out
