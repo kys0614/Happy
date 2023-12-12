@@ -1,0 +1,142 @@
+Python 3.11.3 (tags/v3.11.3:f3909b8, Apr  4 2023, 23:49:59) [MSC v.1934 64 bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license()" for more information.
+
+a = [1,2,3,1,2,3]
+a
+[1, 2, 3, 1, 2, 3]
+a.remove(3)
+a
+[1, 2, 1, 2, 3]
+
+a = [1,2,3,1]
+a
+[1, 2, 3, 1]
+a.count(1)
+2
+
+a = [1,2,3]
+a
+[1, 2, 3]
+a.extends([4,5])
+Traceback (most recent call last):
+  File "<pyshell#12>", line 1, in <module>
+    a.extends([4,5])
+AttributeError: 'list' object has no attribute 'extends'. Did you mean: 'extend'?
+a.extend([4,5])
+a
+[1, 2, 3, 4, 5]
+a = [1,2,3,4,5,6,7,8]
+a
+[1, 2, 3, 4, 5, 6, 7, 8]
+a.extend([9,10])
+a
+[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+
+a = [1,2,3]
+a
+[1, 2, 3]
+a.extend([4,5])
+a
+[1, 2, 3, 4, 5]
+a.extend([6,7,8,9,10])
+a
+[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+
+t1 = (1,2,'a','b')
+t1
+(1, 2, 'a', 'b')
+del t1[0]
+Traceback (most recent call last):
+  File "<pyshell#31>", line 1, in <module>
+    del t1[0]
+TypeError: 'tuple' object doesn't support item deletion
+t1[0] = 'c'
+Traceback (most recent call last):
+  File "<pyshell#32>", line 1, in <module>
+    t1[0] = 'c'
+TypeError: 'tuple' object does not support item assignment
+t1
+(1, 2, 'a', 'b')
+
+
+
+person = {'name':'pey'}
+person['name']
+'pey'
+person = {'name':'pey','phone':'010-9999-1234', 'birth':'900110'}
+person['phone']
+'010-9999-1234'
+person['birth']
+'900110'
+a = {1:'a',1:'b'}
+a
+{1: 'b'}
+a = {[1,2]:'hi'}
+Traceback (most recent call last):
+  File "<pyshell#50>", line 1, in <module>
+    a = {[1,2]:'hi'}
+TypeError: unhashable type: 'list'
+person
+{'name': 'pey', 'phone': '010-9999-1234', 'birth': '900110'}
+a.keys()
+dict_keys([1])
+a.values()
+dict_values(['b'])
+a.items()
+dict_items([(1, 'b')])
+
+
+
+a = {'A':90,'B':80,'C':70}
+print(a)
+{'A': 90, 'B': 80, 'C': 70}
+a['B']
+80
+b = a.pop('B')
+print(b)
+80
+a
+{'A': 90, 'C': 70}
+s1 = set([1,2,3,4,5,6])
+s2 = set([4,5,6,7,8,9])
+s1
+{1, 2, 3, 4, 5, 6}
+s2
+{4, 5, 6, 7, 8, 9}
+
+s1 & s2
+{4, 5, 6}
+s1 | s2
+{1, 2, 3, 4, 5, 6, 7, 8, 9}
+s1 - s2
+{1, 2, 3}
+
+s1 = set([1,2,3])
+s1.add(4) -> [1,2,3,4]
+SyntaxError: invalid syntax
+s1.add(4)
+s1
+{1, 2, 3, 4}
+s1 = set([1,2,3])
+s1
+{1, 2, 3}
+s1.add(4)
+s1
+{1, 2, 3, 4}
+
+
+s1 = set([1,2,3])
+s1
+{1, 2, 3}
+s1.update([4,5,6])
+s1
+{1, 2, 3, 4, 5, 6}
+
+
+
+a = [1,2,3]
+b = [1,2,3]
+a is b
+False
